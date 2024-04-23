@@ -10,3 +10,4 @@ nix run github:ooo-mmm/godot-bin-flake#godot
 nix run github:ooo-mmm/godot-bin-flake#godotMono
 ```
 ### default flavor is godotMono
+base on github:Quoteme/nixos-godot-bin
