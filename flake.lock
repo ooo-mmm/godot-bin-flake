@@ -21,7 +21,7 @@
     "godot-desktop-file": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-FYiixHXikdWjfSDwYc0ZcchoW9UiOBh0cMsClOuSJFY=",
+        "narHash": "sha256-L66Dobd++BQmvQVMufiH6Q+rh8xxpWOIbxb+onVF9cM=",
         "type": "file",
         "url": "https://raw.githubusercontent.com/godotengine/godot/master/misc/dist/linux/org.godotengine.Godot.desktop"
       },

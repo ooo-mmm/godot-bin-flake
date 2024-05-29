@@ -18,7 +18,7 @@ godotBin.overrideAttrs (oldAttrs: rec {
   version = "4.2.2";
 
   src = fetchurl {
-    url = "https://downloads.tuxfamily.org/godotengine/${version}/mono/Godot_v${version}-${qualifier}_mono_linux_x86_64.zip";
+    url = "https://github.com/godotengine/godot-builds/releases/download/${version}-${qualifier}/Godot_v${version}-${qualifier}_mono_linux_x86_64.zip";
     sha512 = "9e38f41785c92c27ce08d5f197be66e167fc5b402d345c6bd06968deecce276b2817d1eabb96c17d3bd21759403f7c29f1cf6acf6f52062786ad84fa507b30b5";
   };
 
