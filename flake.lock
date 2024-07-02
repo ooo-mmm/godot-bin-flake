@@ -45,7 +45,7 @@
     "godot-icon-svg": {
       "flake": false,
       "locked": {
-        "narHash": "sha256-d7EynJ9uftkQP0Db0U29BAOAkw6IkII+4yhfzNqPiO4=",
+        "narHash": "sha256-uvq7FvWNIjEJHHwhcPl/q8y0I5vHdqpKnZA2WDzmzAc=",
         "type": "file",
         "url": "https://raw.githubusercontent.com/godotengine/godot/master/icon.svg"
       },
