@@ -7,6 +7,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:numtide/flake-utils";
     };
+    flake-compat = {
+      url = "github:edolstra/flake-compat";
+      flake = false;
+    };
 
     # Add files needed to create a launcher icon for Godot
     godot-desktop-file = {
