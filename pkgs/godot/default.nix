@@ -20,11 +20,11 @@ in
 
 stdenv.mkDerivation rec {
   pname = "godot-bin";
-  version = "4.2.2";
+  version = "4.3";
 
   src = fetchurl {
     url = "https://github.com/godotengine/godot-builds/releases/download/${version}-${qualifier}/Godot_v${version}-${qualifier}_linux.x86_64.zip";
-    sha512 = "4c0294f437b97cf14f848d921ed028cb6e100ebbfcf6480f2d50292d001221cf29cda73f0a96a8c0e80b145b65cdbf7e422252dbbe17e79d883753e500306276";
+    sha512 = "fd52bb4ba8acc30ca5accd1c566d470ad7282f891ccc0995dfafabcf92bcf76280ce182bf9d80ebd885f3ed2165d01e1fc3f2928436b15498dfbd98656c2a45a";
   };
 
   nativeBuildInputs = [autoPatchelfHook makeWrapper unzip];
