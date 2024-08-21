@@ -3,14 +3,6 @@
 }:
 
 let
-  inherit (pkgs) callPackage;
+  flake = import ./flake.nix;
 in
-rec {
-  godot = callPackage ./pkgs/godot { };
-  godotHeadless = callPackage ./pkgs/godot/headless.nix {
-    godotBin = godot;
-  };
-  godotMono = callPackage ./pkgs/godot/mono.nix {
-    godotBin = godot;
-  };
-}
+flake.packages.${pkgs.system}
