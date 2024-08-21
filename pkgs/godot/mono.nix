@@ -15,11 +15,11 @@ in
 
 godotBin.overrideAttrs (oldAttrs: rec {
   pname = "godot-mono-bin";
-  version = "4.2.2";
+  version = "4.3";
 
   src = fetchurl {
     url = "https://github.com/godotengine/godot-builds/releases/download/${version}-${qualifier}/Godot_v${version}-${qualifier}_mono_linux_x86_64.zip";
-    sha512 = "9e38f41785c92c27ce08d5f197be66e167fc5b402d345c6bd06968deecce276b2817d1eabb96c17d3bd21759403f7c29f1cf6acf6f52062786ad84fa507b30b5";
+    sha512 = "33d0539bc368ff6f30b5f15d64ec893da8639bd607df83050b5df746c3d30da99238c26dd03a16d7fe31b3a3e58680aeb5545af8784d8ce01edeff07b061ac80";
   };
 
   buildInputs = oldAttrs.buildInputs ++ [zlib dotnet-sdk_8];
