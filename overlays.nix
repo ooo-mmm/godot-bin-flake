@@ -16,14 +16,14 @@ let
   };
 in
 {
-  godotBin = callPackage ./pkgs/godot {
+  godot = callPackage ./pkgs/godot {
     godotDesktopFile = godot-desktop-file;
     godotIconPNG = godot-icon-png;
     godotIconSVG = godot-icon-svg;
     godotManpage = godot-manpage;
   };
-  godotMonoBin = callPackage ./pkgs/godot/mono.nix {
-    godotBin = godotBin;
+  godotMono = callPackage ./pkgs/godot/mono.nix {
+    godotBin = godot;
     godotDesktopFile = godot-desktop-file;
     godotIconPNG = godot-icon-png;
     godotIconSVG = godot-icon-svg;
