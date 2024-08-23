@@ -4,16 +4,16 @@
 
 let
   inherit (pkgs) callPackage;
-  godot-desktop-file = fetchurl{
+  godot-desktop-file = builtins.fetchurl{
     url = "https://raw.githubusercontent.com/godotengine/godot/master/misc/dist/linux/org.godotengine.Godot.desktop";
   };
-  godot-icon-png = fetchurl{
+  godot-icon-png = builtins.fetchurl{
     url = "https://raw.githubusercontent.com/godotengine/godot/master/icon.png";
   };
-  godot-icon-svg = fetchurl{
+  godot-icon-svg = builtins.fetchurl{
     url = "https://raw.githubusercontent.com/godotengine/godot/master/icon.svg";
   };
-  godot-manpage = fetchurl{
+  godot-manpage = builtins.fetchurl{
     url = "https://raw.githubusercontent.com/godotengine/godot/master/misc/dist/linux/godot.6";
   };
 in
