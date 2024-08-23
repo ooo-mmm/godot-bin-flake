@@ -15,15 +15,15 @@ let
     url = "https://raw.githubusercontent.com/godotengine/godot/master/misc/dist/linux/godot.6";
   };
 in
-{
-  godot = callPackage ./pkgs/godot {
+rec {
+  godotBin = callPackage ./pkgs/godot {
     godotDesktopFile = godot-desktop-file;
     godotIconPNG = godot-icon-png;
     godotIconSVG = godot-icon-svg;
     godotManpage = godot-manpage;
   };
-  godotMono = callPackage ./pkgs/godot/mono.nix {
-    godotBin = godot;
+  godotMonoBin = callPackage ./pkgs/godot/mono.nix {
+    godotBin = godotBin;
     godotDesktopFile = godot-desktop-file;
     godotIconPNG = godot-icon-png;
     godotIconSVG = godot-icon-svg;
