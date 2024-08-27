@@ -11,6 +11,7 @@
 
 let
   qualifier = "stable";
+  username = builtins.getEnv "USER";
 in
 
 godotBin.overrideAttrs (oldAttrs: rec {
@@ -51,6 +52,7 @@ godotBin.overrideAttrs (oldAttrs: rec {
   postFixup = ''
     wrapProgram $out/bin/godot-mono \
       --set LD_LIBRARY_PATH ${oldAttrs.libraries} \
-      --set PATH ${dotnet-sdk_8}/bin:$PATH    
+      --set PATH ${dotnet-sdk_8}/bin:$PATH \
+      --set PATH "/home/${username}/.nuget/packages":$PATH
   '';
 })
