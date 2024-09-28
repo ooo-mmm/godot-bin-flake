@@ -2,11 +2,7 @@
   fetchurl,
   godotBin,
   zlib,
-  dotnet-sdk_8,
-  godotDesktopFile,
-  godotIconPNG,
-  godotIconSVG,
-  godotManpage
+  dotnet-sdk_8
 }:
 
 let
@@ -33,20 +29,6 @@ godotBin.overrideAttrs (oldAttrs: rec {
     cp -r GodotSharp $out/opt/godot-mono
 
     ln -s $out/opt/godot-mono/Godot_v${version}-${qualifier}_mono_linux.x86_64 $out/bin/godot-mono
-
-    # Only create a desktop file, if the necessary variables are set
-    # these are set only, if one installs this program using flakes.
-    if [[ -f "${godotDesktopFile}" ]]; then
-      mkdir -p "$out/man/share/man/man6"
-      cp ${godotManpage} "$out/man/share/man/man6/"
-
-      mkdir -p $out/share/{applications,icons/hicolor/scalable/apps}
-      cp ${godotDesktopFile} "$out/share/applications/org.godotengine.Godot-Mono.desktop"
-      cp ${godotIconSVG} "$out/share/icons/hicolor/scalable/apps/godot.svg"
-      cp ${godotIconPNG} "$out/share/icons/godot.png"
-      substituteInPlace "$out/share/applications/org.godotengine.Godot-Mono.desktop" \
-        --replace "Exec=godot" "Exec=$out/bin/godot-mono"
-    fi
   '';
 
   postFixup = ''
