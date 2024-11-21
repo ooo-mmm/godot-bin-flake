@@ -1,7 +1,6 @@
 { 
   stdenv,
   lib,
-  autoPatchelfHook,
   makeWrapper,
   fetchurl,
   unzip,
@@ -23,7 +22,7 @@ stdenv.mkDerivation rec {
     sha512 = "71eed3a033cef64f814ba2d14389780d30c558ecc9a216582cfe44dcbeaed3f3c26100da461590fc87dd3e8fdb53a19b6ac03720eb9140e9d1d0639c2be8493a";
   };
 
-  nativeBuildInputs = [autoPatchelfHook makeWrapper unzip];
+  nativeBuildInputs = [makeWrapper unzip];
 
   buildInputs = [zlib dotnet-sdk_8];
   libraries = lib.makeLibraryPath buildInputs;
