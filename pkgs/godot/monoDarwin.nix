@@ -1,11 +1,11 @@
-{ 
+{
   stdenv,
   lib,
   makeWrapper,
   fetchurl,
   unzip,
   zlib,
-  dotnet-sdk_8
+  dotnet-sdk_8,
 }:
 
 let
@@ -14,7 +14,7 @@ let
 in
 
 stdenv.mkDerivation rec {
-  pname = "godot-mono-bin";
+  pname = "godot-mono";
   version = "4.3";
 
   src = fetchurl {
@@ -22,18 +22,25 @@ stdenv.mkDerivation rec {
     sha512 = "71eed3a033cef64f814ba2d14389780d30c558ecc9a216582cfe44dcbeaed3f3c26100da461590fc87dd3e8fdb53a19b6ac03720eb9140e9d1d0639c2be8493a";
   };
 
-  nativeBuildInputs = [makeWrapper unzip];
+  nativeBuildInputs = [
+    makeWrapper
+    unzip
+  ];
 
-  buildInputs = [zlib dotnet-sdk_8];
+  buildInputs = [
+    zlib
+    dotnet-sdk_8
+  ];
   libraries = lib.makeLibraryPath buildInputs;
 
-  unpackCmd = "unzip $curSrc";
+  unpackCmd = "";
   installPhase = ''
-   mkdir -p $out/Applications
-    cp -r Godot_mono.app $out/Applications/
-    
-    mkdir -p $out/bin
-    ln -s $out/Applications/Godot_mono.app/Contents/MacOS/Godot_mono $out/bin/godot-mono
+    mkdir -p $out/Applications
+    cp -r . $out/Applications/Godot_mono.app/
+     
+     mkdir -p $out/bin
+     ln -s $out/Applications/Godot_mono.app/Contents/MacOS/godot $out/bin/godot-mono
+    ln -sf $out/Applications/Godot_mono.app/Contents/Resources/GodotSharp/ $out/bin/
   '';
 
   postFixup = ''
@@ -44,10 +51,10 @@ stdenv.mkDerivation rec {
   '';
 
   meta = {
-    homepage    = "https://godotengine.org";
+    homepage = "https://godotengine.org";
     description = "Free and Open Source 2D and 3D game engine";
-    license     = lib.licenses.mit;
-    platforms   = [ "aarch64-darwin" ];
+    license = lib.licenses.mit;
+    platforms = [ "aarch64-darwin" ];
     maintainers = [ "vg" ];
   };
 }
