@@ -27,11 +27,13 @@ stdenv.mkDerivation rec {
   buildInputs = [zlib dotnet-sdk_8];
   libraries = lib.makeLibraryPath buildInputs;
 
-  unpackCmd = "unzip $curSrc -d source";
+  unpackCmd = "unzip $curSrc";
   installPhase = ''
+   mkdir -p $out/Applications
+    cp -r Godot_mono.app $out/Applications/
+    
     mkdir -p $out/bin
-
-    install -m 0755 Godot_mono $out/bin/godot-mono
+    ln -s $out/Applications/Godot_mono.app/Contents/MacOS/Godot_mono $out/bin/godot-mono
   '';
 
   postFixup = ''
