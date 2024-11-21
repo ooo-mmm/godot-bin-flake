@@ -46,7 +46,7 @@ stdenv.mkDerivation rec {
     homepage    = "https://godotengine.org";
     description = "Free and Open Source 2D and 3D game engine";
     license     = lib.licenses.mit;
-    platforms   = [ "aarch64-apple-darwin" ];
+    platforms   = [ "aarch64-darwin" ];
     maintainers = [ "vg" ];
   };
 }
