@@ -20,9 +20,8 @@
           packages.godotMono = pkgs.callPackage ./pkgs/godot/mono.nix {
             godotBin = packages.godot;
           };
-          packages.godotMonoDarwin = pkgs.callPackage ./pkgs/godot/monoDarwin.nix {
-            godotBin = packages.godot;
-          };
+          packages.godotMonoDarwin = pkgs.callPackage ./pkgs/godot/monoDarwin.nix { };
+          
           overlays.default = final: prev: {
             godot = packages.godot;
             godotMono = packages.godotMono;
